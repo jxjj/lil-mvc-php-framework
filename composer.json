@@ -7,6 +7,9 @@
       "email": "johnsojr@gmail.com"
     }
   ],
+  "scripts": {
+    "start": "php -t ./public -S localhost:8080"
+  },
   "autoload": {
     "psr-4": {
       "App\\": "./"
