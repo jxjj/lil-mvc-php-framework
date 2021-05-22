@@ -3,6 +3,7 @@
 namespace App\Core;
 
 use App\Core\Router;
+use App\Core\Request;
 
 class Application
 {
@@ -15,13 +16,18 @@ class Application
 
   public function run()
   {
-    $request_uri = trim($_SERVER["REQUEST_URI"]);
-    $request_method = $_SERVER["REQUEST_METHOD"];
-    $response_function = $this->router->get_response(
-      $request_method,
-      $request_uri
+    $request = Request::createFromGlobals();
+
+    $responderFn = $this->router->resolve(
+      $request->getMethod(),
+      $request->getPath()
     );
 
-    call_user_func($response_function);
+    if (!$responderFn) {
+      echo "404";
+      return;
+    }
+
+    call_user_func($responderFn);
   }
 }
