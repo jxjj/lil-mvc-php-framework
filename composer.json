@@ -1,0 +1,16 @@
+{
+  "name": "jjohnson136/lil-mvc-php-framework",
+  "description": "A small experiment just for reviewing PHP",
+  "authors": [
+    {
+      "name": "James Johnson",
+      "email": "johnsojr@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "./"
+    }
+  },
+  "require": {}
+}
