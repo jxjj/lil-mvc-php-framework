@@ -20,7 +20,9 @@ class Template
     return array_reduce_assoc(
       $key_val_array,
       function ($inProgressTemplate, $key, $val) use ($tokenStart, $tokenEnd) {
-        return preg_replace("/$tokenStart\s*$key\s*$tokenEnd/m", $val, $inProgressTemplate);
+        $encodedKey = e($key);
+        $encodedVal = e($val);
+        return preg_replace("/$tokenStart\s*$encodedKey\s*$tokenEnd/m", $encodedVal, $inProgressTemplate);
       },
       $template
     );
@@ -38,7 +40,6 @@ class Template
       throw new \Exception("Cannot load template $templateName");
     }
 
-    return self::compileTemplate($template, $key_val_array
-  );
+    return self::compileTemplate($template, $key_val_array);
   }
 }

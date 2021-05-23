@@ -27,3 +27,13 @@ if (!function_exists("dd")) {
     die();
   }
 }
+
+/**
+ * escape a string
+ */
+if (!function_exists("e")) {
+  function e(string $value)
+  {
+    return htmlspecialchars($value ?? "", ENT_QUOTES, "UTF-8", true);
+  }
+}
