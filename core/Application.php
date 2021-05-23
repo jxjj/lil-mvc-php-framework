@@ -28,6 +28,6 @@ class Application
       return;
     }
 
-    call_user_func($responderFn);
+    echo call_user_func($responderFn);
   }
 }
