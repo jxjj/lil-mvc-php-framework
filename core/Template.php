@@ -31,7 +31,7 @@ class Template
   /**
    * make a page from a template and key-value array
    */
-  public static function make(string $templateName, array $key_val_array
+  public static function make(string $templateName = '', array $key_val_array = []
   ): string
   {
     $template = self::getTemplateFile($templateName);
